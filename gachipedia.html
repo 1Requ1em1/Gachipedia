@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Example</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sample">
+            <button class="btn btn-primary"
+                    v-on:click="showH2 = !showH2"
+                    v-bind:title="showH2 ? 'Hide' : 'Show'">
+                Wee Wee
+            </button>
+            <hr>
+            <h2 v-show="showH2">Gachipedia</h2>
+            <hr>
+            <button class="btn btn-success"
+                    v-on:click="showText">
+                Billy Herrington
+            </button>
+            <div v-if="isTextVisible">
+                <p>{{ message }}></p>
+                <img :src="imageUrl"  style="max-width: 100%; height: auto;">
+            </div>
+            <button class="btn btn-success"
+                    v-on:click="RicMil">
+                Ricardo Milos
+            </button>
+            <div v-if="isVisible">
+                <p>{{ message2 }}</p>
+                <img :src="imageRic" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '.sample',
+            data: {
+                isVisible: false,
+                imageRic: 'https://steamuserimages-a.akamaihd.net/ugc/802116768215535350/BD2D9274D08D916EC16789D8F439D748BB52E5EC/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false',
+                message2: 'В молодости Рикардо Милос изучал основы ведения бизнеса, занимался предпринимательством. Однако популярным его сделало вовсе не это, а зажигательный танец, видео с которым стало вирусным в Сети',
+                isTextVisible: false,
+                message: 'Уильям Глен Гарольд Херрингтон (14 июля 1969 — 2 марта 2018) — американская модель и порноактёр . [ 4 ] [ 5 ] В конце 2000-х годов его появление в различных фильмах с гей-порнографией сделало его популярным интернет-мемом на сайтах обмена видео , таких как японский Nico Nico Douga , где его называли прозвищем «Аники» (兄貴, букв. «старший брат») . С тех пор было выпущено не менее 15 000 коротких пародий на его клипы, известные как «Gachimuchi Pants Wrestling» ( японский : ガチムチパンツレスリング, Хепберн : Gachimuchi Pantsu Resuringu , букв. «Beefy Briefs Wrestling»). пользователи.',
+                imageUrl: 'data:image/webp;base64,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',
+                showH2: true,
+                Bio:'Billy Herrington',
+                Bio2:'Ricardo Milos'
+            },
+            methods: {
+                RicMil() {
+                    this.isVisible = !this.isVisible;
+                },
+                showText() {
+                    this.isTextVisible = !this.isTextVisible;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
